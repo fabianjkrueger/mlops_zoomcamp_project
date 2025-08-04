@@ -12,6 +12,7 @@ python scripts/train.py
 """
 
 # Dependencies
+import warnings
 import pandas as pd
 import mlflow
 import mlflow.sklearn
@@ -23,6 +24,9 @@ from sklearn.metrics import mean_squared_error
 # Paths
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PATH_DATA_PROCESSED = REPO_ROOT / "data" / "processed"
+
+# suppress the pkg_resources deprecation warning from MLflow
+warnings.filterwarnings("ignore", message="pkg_resources is deprecated")
 
 
 def setup_mlflow():
