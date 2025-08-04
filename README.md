@@ -36,6 +36,13 @@ This project uses `pipenv` to manage dependencies and virtual environments.
 
 The project uses the "How Long to Beat Video Game Playtime Dataset" from Kaggle.
 
+This data was selected for the following reasons:
+- It contains date of release, so the data can be separated by time of release
+- It has an acceptable number of samples, so models should be able to learn from
+it
+- It provides a good target variable to predict: the number of hours played
+- The theme is kind of interesting and not too common
+
 #### Download the Dataset
 
 1. **Make sure you're in the pipenv environment:**
@@ -52,3 +59,18 @@ This will:
 - Download the dataset from Kaggle using `kagglehub` to cache
 - Copy the files to `data/raw/` in your project directory
 - Print the final location of the downloaded files
+
+## Training the Model
+
+This course is about machine learning **operations**, *not* machine learning
+engineering.
+The goal here is not to build the best model, but to build the infrastructure
+around it.
+Here, I will just train a very simple model without any hyperparameter tuning or
+fluff, because I just need **any** model.
+
+Still, some exploratory data analysis is needed to even understand what I can
+train in the first place.
+This is done in `notebooks/exploratory_data_analysis.ipynb`.
+
+
