@@ -1,5 +1,49 @@
 # MLOps Zoomcamp Project
 
+## Problem Description
+
+Since this is a course about MLOps, the goal is not to build the best model,
+or solve some fancy machine learning problem,
+but to build the infrastructure around the model.
+
+My goal here was to get a model that I could deploy as a web service as well as
+in batch mode.
+So, I wanted some data with time of release information.
+Ideally it should be updated regularly.
+This would allow me to either actually schedule batch jobs frequently or to at
+least simulate the process.
+
+I found a dataset on Kaggle that seemed to be a good fit:
+[How Long to Beat Video Game Playtime Dataset](https://www.kaggle.com/datasets/the-guardian/how-long-to-beat-video-game-playtime-dataset).
+It contains information about the playtime of video games, including the time of
+release.
+It also contains information about the main story, main plus sides, and
+completionist playtime.
+I decided to use the main story and main plus sides playtime as features and the
+completionist playtime as the target variable.
+Alongside this, it contained information about when the game was released.
+This would allow me to simulate the process of scheduling batch jobs regularly.
+However, it also meant that I couldn't use the time of release as a feature,
+so I ended up with a model that is not very good.
+
+But as I said, in my personal opinion, getting a great model was never the goal
+of this particular project.
+There are many other projects, courses and competitions for getting good models.
+Here, I decided to get a bad one and focus on aspects of MLOps that actually
+distinguish this particular course from the others, so I could learn something
+new.
+
+So yeah, just a little more about the "problem" it is supposed to solve:
+it predicts how long people are going to need for completing a video game until
+they like 100% finished every little piece of content that's still left and
+really isn't much left to do.
+This prediciton is done based on the time people took for completing the main
+story and the side quests, as well as the number of people who submitted their
+playtime.
+So fundamentally it doesn't really "solve" anything I guess.
+But it can be deployed and generate predictions, which is cool, so I'm happy
+with it.
+
 ## Setup
 
 ### Environment Setup
@@ -105,9 +149,25 @@ python scripts/train.py
 
 Model is logged to MLflow.
 
-## MLflow
+## Model Promotion
 
-This project uses MLflow to track experiments and model artifacts.
+The best model is registered in the MLflow Model Registry.
+This is done in `scripts/promote_model.py`.
+
+#### How to run
+
+Make sure the MLflow server is running.
+
+```bash
+pipenv shell
+python scripts/promote_model.py
+```
+
+The model is promoted to the `Staging` stage.
+
+## MLflow Server
+
+This project uses MLflow.
 
 I hosted an MLflow server and a PostgreSQL database locally using
 Docker Compose.
