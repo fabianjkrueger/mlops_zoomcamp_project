@@ -1,0 +1,3 @@
+# data dir contains rather large files -> don't track
+# instead, provide code for getting data
+/data/**
