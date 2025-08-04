@@ -72,7 +72,7 @@ into scripts.
 The code for data preparation is in `scripts/data_preparation.py`.
 It was extracted and refactored from the notebook to make it easier to run.
 
-How to run:
+#### How to run
 ```bash
 pipenv shell
 python scripts/data_preparation.py
@@ -84,12 +84,26 @@ This course is about machine learning **operations**, *not* machine learning
 engineering.
 The goal here is not to build the best model, but to build the infrastructure
 around it.
-Here, I will just train a very simple model without any hyperparameter tuning or
+Here, I just trained a very simple model without any hyperparameter tuning or
 fluff, because I just need **any** model.
 
-Still, some exploratory data analysis is needed to even understand what I can
-train in the first place.
-This is done in `notebooks/exploratory_data_analysis.ipynb`.
+
+Training the model was initially conceptualized in the notebook
+`notebooks/exploratory_data_analysis.ipynb`.
+
+The relevant code was later extracted and refactored into the script
+`scripts/train.py`.
+
+#### How to run
+
+Make sure you have the data prepared and the MLflow server running.
+
+```bash
+pipenv shell
+python scripts/train.py
+```
+
+Model is logged to MLflow.
 
 ## MLflow
 
