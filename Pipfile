@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 kagglehub = "*"
 ipykernel = "*"
+pandas = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
