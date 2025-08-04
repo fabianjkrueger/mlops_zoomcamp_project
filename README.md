@@ -32,7 +32,7 @@ This project uses `pipenv` to manage dependencies and virtual environments.
 - **Install dev dependencies:** `pipenv install package_name --dev`
 - **Run scripts without activating:** `pipenv run python script.py`
 
-### Data Download
+## Data
 
 The project uses the "How Long to Beat Video Game Playtime Dataset" from Kaggle.
 
@@ -43,7 +43,7 @@ it
 - It provides a good target variable to predict: the number of hours played
 - The theme is kind of interesting and not too common
 
-#### Download the Dataset
+### Download the Dataset
 
 1. **Make sure you're in the pipenv environment:**
    ```bash
@@ -59,6 +59,24 @@ This will:
 - Download the dataset from Kaggle using `kagglehub` to cache
 - Copy the files to `data/raw/` in your project directory
 - Print the final location of the downloaded files
+
+### Exploratory Data Analysis
+
+The data was explored in `notebooks/exploratory_data_analysis.ipynb`.
+This notebook actually runs a full data pipeline, but it's not necessary to
+replicate the results of this project, because the relevant code was extracted
+into scripts.
+
+### Prepare the Data
+
+The code for data preparation is in `scripts/data_preparation.py`.
+It was extracted and refactored from the notebook to make it easier to run.
+
+How to run:
+```bash
+pipenv shell
+python scripts/data_preparation.py
+```
 
 ## Training the Model
 
