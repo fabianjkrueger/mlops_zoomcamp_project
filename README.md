@@ -73,4 +73,22 @@ Still, some exploratory data analysis is needed to even understand what I can
 train in the first place.
 This is done in `notebooks/exploratory_data_analysis.ipynb`.
 
+## MLflow
+
+This project uses MLflow to track experiments and model artifacts.
+
+I hosted an MLflow server and a PostgreSQL database locally using
+Docker Compose.
+
+The server is accessible at `http://localhost:5001`.
+
+The code for this server is in a different repository:
+[mlflow_postgresql_docker](https://github.com/fabianjkrueger/mlflow_postgresql_docker).
+
+Follow the instructions in the repository to set up the server and database in
+case you would like to reproduce the results.
+
+
+
+
 
