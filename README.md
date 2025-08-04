@@ -180,7 +180,43 @@ The code for this server is in a different repository:
 Follow the instructions in the repository to set up the server and database in
 case you would like to reproduce the results.
 
+## Deployment
 
+The model is deployed as a simple Flask app running in a Docker container.
+
+The Dockerfile is in `model-server.dockerfile`.
+
+The script for serving the model is in `scripts/serve_model_simple.py`.
+
+#### How to run
+
+```bash
+# build container
+docker build -f model-server.dockerfile -t model-server .
+
+# or: run in foreground -> you can see logs
+docker run -p 5002:5000 model-server
+
+# either: run in background -> terminal isn't blocked
+docker run -d -p 5002:5000 model-server
+
+# test: get some prediction
+curl -X POST http://localhost:5002/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "main_story": 25.0,
+    "main_story_polled": 100,
+    "main_plus_sides": 45.0,
+    "main_plus_sides_polled": 75
+  }'
+
+# stop container
+# if started in foreground:
+#   - press Ctrl+C
+# if started in background:
+#   - get container ID: docker ps
+#   - stop container: docker stop <container_id>
+```
 
 
 

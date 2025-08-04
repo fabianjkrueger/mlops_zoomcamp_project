@@ -10,6 +10,7 @@ pandas = "*"
 scikit-learn = "*"
 mlflow = "==2.14.1"
 setuptools = "*"
+gunicorn = "*"
 
 [dev-packages]
 
